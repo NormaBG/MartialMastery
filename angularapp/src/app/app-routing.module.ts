@@ -7,11 +7,8 @@ import { AppComponent } from './app.component';
 
 const ROUTES: Routes = [
   //rutas xd
-  { path: '', component: AppComponent}, //principal
-  {
-    path: 'login',
-    component: LoginComponent, //login
-  },
+  //{ path: '', component: AppComponent}, //principal
+  { path: 'login', component: LoginComponent }, //login
 ];
 
 @NgModule({
