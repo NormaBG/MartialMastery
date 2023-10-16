@@ -1,0 +1,45 @@
+<!--
+<div class=" prueba ">
+<h1 id="tableLabel">Prueba 1</h1>
+
+<p>Prueba api tipo de user</p>
+
+<table *ngIf="tipouser">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tipo.</th>
+            </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of tipouser">
+            <td>{{ x.idTp }}</td>
+            <td>{{ x.tipoDeUser }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Usuarios registrados</p>
+
+<table *ngIf="usuarios">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>usuario</th>
+      <th>contraseña</th>
+      <th>tipouser</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let x of usuarios">
+      <td>{{ x.idUser }}</td>
+      <td>{{ x.usuario1 }}</td>
+      <td>{{ x.contrasena }}</td>
+      <td>{{ x.tipoDeUser }}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <router-outle></router-outle>
+  -->
+<router-outlet></router-outlet>
