@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  onSubmit() {
+  username: string | undefined;
+  password: string | undefined;
 
+  onSubmit() {
+    console.log('Usuario: ' + this.username);
+    console.log('Contraseña: ' + this.password);
   }
+
 
 }
