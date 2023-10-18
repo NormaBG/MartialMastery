@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,15 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  username: string | undefined;
-  password: string | undefined;
+  constructor(private http: HttpClient) { }
 
-  onSubmit() {
-    console.log('Usuario: ' + this.username);
-    console.log('Contraseña: ' + this.password);
+  login(username: string, password: string) {
+    const body = { username, password };
+    return this.http.post('api/usuarios',body);
   }
 
+  onSubmit() {
+
+  }
 
 }

@@ -15,6 +15,8 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,
-    MatToolbarModule, NoopAnimationsModule, MatButtonModule, MatIconModule, MatCardModule
+    MatToolbarModule, NoopAnimationsModule, MatButtonModule, MatIconModule, MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

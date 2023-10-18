@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using webapi.Models;
 
@@ -28,6 +29,7 @@ namespace webapi.Controllers
           {
               return NotFound();
           }
+
             return await _context.Usuarios.ToListAsync();
         }
 
@@ -85,22 +87,17 @@ namespace webapi.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
+
             if (_context.Usuarios == null)
             {
               return Problem("Entity set 'MartialMasterContext.Usuarios'  is null.");
             }
 
-            var nuevousuario = new Usuario
-            {
-                Usuario1 = "raquel",
-                Contrasena = "456",
-                TipoDeUser = 2
-            };
-
-            _context.Usuarios.Add(nuevousuario);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuario", new { id = nuevousuario.IdUser }, nuevousuario);
+            return CreatedAtAction("GetUsuario", new { id = usuario.IdUser }, usuario);
+        
+        
         }
 
         // DELETE: api/Usuarios/5

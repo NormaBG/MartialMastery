@@ -1,16 +1,14 @@
 body {
-  background-color: #000;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Cambia height a min-height para que abarque toda la pantalla */
+  min-height: 100vh;
 }
 
 .login-container {
-  margin-top: 200px;
-  margin-left: 450px;
-  width: 100%; /* Abarca todo el ancho de la pantalla */
+  margin: 150px auto 0;
+  width: 90%; /* Abarca todo el ancho de la pantalla */
   max-width: 400px; /* Establece un ancho máximo para evitar que el formulario sea demasiado ancho en pantallas grandes */
   background: #000;
   padding: 15px;
@@ -18,11 +16,12 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   color: #fff;
   text-align: center;
+  border-radius: 5px;
 }
 
   .login-container h2 {
     text-align: center;
-    color: #ff0000; /* Rojo */
+    color: #fff;
   }
 
 .form-group {
@@ -31,7 +30,7 @@ body {
 
 label {
   display: block;
-  color: #ff0000; /* Rojo */
+  color: #fff;
   font-weight: bold;
 }
 
@@ -40,17 +39,17 @@ input[type="password"] {
   width: 100%;
   padding: 8px;
   margin: 6px 0;
-  border: 1px solid #ff0000; /* Rojo */
-  border-radius: 5px;
+  /*border: 1px solid #ff0000; Rojo */
+  border-radius: 15px;
 }
 
 button {
   width: 40%;
-  background: #ff0000; /* Rojo */
-  color: #000; /* Negro */
+  background: #fff;
+  color: #000;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -69,15 +68,16 @@ button {
   cursor: pointer;
   text-decoration: none;
   margin-left: 4px;
+  border-radius: 10px;
 }
 
   .registro-link:hover {
-    background: #ff0000;
+    background: #fff;
   }
 
 @media screen and (max-width: 768px) {
   .login-container {
-    padding: 10px; /* Reduzca el relleno para pantallas más pequeñas */
+    padding: 10px;
   }
 
   .form-group {
