@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using webapi.Controllers;
 using webapi.Models;
@@ -14,7 +15,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MartialMasterContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaBD_MartialMastery"));
-
 });
 
 var app = builder.Build();

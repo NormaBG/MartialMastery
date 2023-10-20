@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +11,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent {
 
-  constructor(private http: HttpClient) { }
+  username: string = '';
+  password: string = '';
+  loginError: string = '';
 
-  login(username: string, password: string) {
-    const body = { username, password };
-    return this.http.post('api/usuarios',body);
+  constructor(private authService: AuthService, private router: Router) { }
+
+  login() {
+    this.authService.login(this.username, this.password).subscribe(
+      (Response) => {
+        if (Response.succes) {
+          //inicio sesion correctamente
+          this.router.navigate(['']);
+        } else {
+          //fallo la autenticacion
+          this.loginError = 'Nombre de usuario o contraseña incorrecto';
+        }
+      },
+      (error) => {
+        //manejo de errores
+        this.loginError = 'Hubo un problema al iniciar sesion';
+      }
+    )
   }
-
-  onSubmit() {
-
-  }
-
 }

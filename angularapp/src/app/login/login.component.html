@@ -6,7 +6,7 @@
 
     <h2>Iniciar Sesión</h2>
 
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <form #loginForm="ngForm">
 
       <div class="form-group">
 
@@ -20,7 +20,7 @@
         <input type="password" id="password" name="password" ngModel required>
       </div>
 
-      <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+      <button type="submit" routerLink="/" [disabled]="loginForm.invalid">Iniciar Sesión</button>
       <button routerLink="/registro" class="registro-link">Registrarse</button>
     </form>
   </div>

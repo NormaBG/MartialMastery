@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AuthService } from './login/auth.service';
 
 
 const ROUTES: Routes = [
   //rutas xd
   //{ path: '', component: AppComponent}, //principal
-  { path: 'login', component: LoginComponent }, //login
+  //{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent}, //login
 ];
 
 @NgModule({
