@@ -28,7 +28,7 @@ namespace webapi.Controllers
         [Route("Validar")]
         public async Task<IActionResult> Validar([FromBody] Usuario request)
         {
-            using (var contextobd = new MartialMasterContext())
+            using(var contextobd = new MartialMasterContext())
             {
                 var usuarioEncontrado = await contextobd.Usuarios.SingleOrDefaultAsync(u => u.Usuario1 == request.Usuario1);
                 var contraencontrada = await contextobd.Usuarios.SingleOrDefaultAsync(u => u.Contrasena == request.Contrasena);
@@ -51,7 +51,7 @@ namespace webapi.Controllers
 
                     //lectura del token
 
-                    var tokenHandler = new JwtSecurityToken();
+                    var tokenHandler = new JwtSecurityTokenHandler();
                     var tokenConfig = tokenHandler.CreateToken(tokenDescriptor);
 
                     string tokencreador = tokenHandler.WriteToken(tokenConfig);
