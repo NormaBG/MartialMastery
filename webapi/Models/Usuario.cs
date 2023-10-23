@@ -5,13 +5,13 @@ namespace webapi.Models;
 
 public partial class Usuario
 {
-    public int IdUser { get; set; }
+    public int IdUsuario { get; set; }
 
-    public string? Usuario1 { get; set; }
+    public string Usuario1 { get; set; } = null!;
 
-    public string? Contrasena { get; set; }
+    public string Contrasena { get; set; } = null!;
 
     public int TipoDeUser { get; set; }
 
-    public virtual Tiposuser TipoDeUserNavigation { get; set; } = null!;
+    public virtual Tiposdeusuario TipoDeUserNavigation { get; set; }
 }

@@ -27,7 +27,7 @@ public partial class MartialMasterContext : DbContext
 
     public virtual DbSet<ResultadosPelea> ResultadosPeleas { get; set; }
 
-    public virtual DbSet<Tiposuser> Tiposusers { get; set; }
+    public virtual DbSet<Tiposdeusuario> Tiposdeusuarios { get; set; }
 
     public virtual DbSet<Torneo> Torneos { get; set; }
 
@@ -112,9 +112,7 @@ public partial class MartialMasterContext : DbContext
 
             entity.ToTable("participacion");
 
-            entity.Property(e => e.IdParticipacion)
-                .ValueGeneratedNever()
-                .HasColumnName("id_participacion");
+            entity.Property(e => e.IdParticipacion).HasColumnName("id_participacion");
             entity.Property(e => e.FechaDeRegistro)
                 .HasColumnType("date")
                 .HasColumnName("fecha_de_registro");
@@ -201,15 +199,17 @@ public partial class MartialMasterContext : DbContext
                 .HasConstraintName("FK__Resultado__id_to__48CFD27E");
         });
 
-        modelBuilder.Entity<Tiposuser>(entity =>
+        modelBuilder.Entity<Tiposdeusuario>(entity =>
         {
-            entity.HasKey(e => e.IdTp).HasName("PK_tiposuser_1");
+            entity.HasKey(e => e.IdTp);
 
-            entity.ToTable("tiposuser");
+            entity.ToTable("tiposdeusuario");
 
-            entity.Property(e => e.IdTp).HasColumnName("id_tp");
-            entity.Property(e => e.TipoDeUser)
-                .HasMaxLength(15)
+            entity.Property(e => e.IdTp)
+                .ValueGeneratedNever()
+                .HasColumnName("id_tp");
+            entity.Property(e => e.NombreDelTipo)
+                .HasMaxLength(20)
                 .IsUnicode(false);
         });
 
@@ -252,13 +252,13 @@ public partial class MartialMasterContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUser).HasName("PK__usuarios__D2D146376D075D6A");
+            entity.HasKey(e => e.IdUsuario);
 
             entity.ToTable("usuarios");
 
-            entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.Contrasena)
-                .HasMaxLength(50)
+                .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("contrasena");
             entity.Property(e => e.Usuario1)
@@ -269,7 +269,7 @@ public partial class MartialMasterContext : DbContext
             entity.HasOne(d => d.TipoDeUserNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.TipoDeUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Tipodeuser");
+                .HasConstraintName("FK_usuarios_tiposdeusuario");
         });
 
         OnModelCreatingPartial(modelBuilder);

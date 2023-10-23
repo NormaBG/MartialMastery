@@ -11,55 +11,55 @@ namespace webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrganizacionesController : ControllerBase
+    public class TiposdeusuariosController : ControllerBase
     {
         private readonly MartialMasterContext _context;
 
-        public OrganizacionesController(MartialMasterContext context)
+        public TiposdeusuariosController(MartialMasterContext context)
         {
             _context = context;
         }
 
-        // GET: api/Organizaciones
+        // GET: api/Tiposdeusuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Organizacione>>> GetOrganizaciones()
+        public async Task<ActionResult<IEnumerable<Tiposdeusuario>>> GetTiposdeusuarios()
         {
-          if (_context.Organizaciones == null)
+          if (_context.Tiposdeusuarios == null)
           {
               return NotFound();
           }
-            return await _context.Organizaciones.ToListAsync();
+            return await _context.Tiposdeusuarios.ToListAsync();
         }
 
-        // GET: api/Organizaciones/5
+        // GET: api/Tiposdeusuarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Organizacione>> GetOrganizacione(int id)
+        public async Task<ActionResult<Tiposdeusuario>> GetTiposdeusuario(int id)
         {
-          if (_context.Organizaciones == null)
+          if (_context.Tiposdeusuarios == null)
           {
               return NotFound();
           }
-            var organizacione = await _context.Organizaciones.FindAsync(id);
+            var tiposdeusuario = await _context.Tiposdeusuarios.FindAsync(id);
 
-            if (organizacione == null)
+            if (tiposdeusuario == null)
             {
                 return NotFound();
             }
 
-            return organizacione;
+            return tiposdeusuario;
         }
 
-        // PUT: api/Organizaciones/5
+        // PUT: api/Tiposdeusuarios/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrganizacione(int id, Organizacione organizacione)
+        public async Task<IActionResult> PutTiposdeusuario(int id, Tiposdeusuario tiposdeusuario)
         {
-            if (id != organizacione.IdOrg)
+            if (id != tiposdeusuario.IdTp)
             {
                 return BadRequest();
             }
 
-            _context.Entry(organizacione).State = EntityState.Modified;
+            _context.Entry(tiposdeusuario).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace webapi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!OrganizacioneExists(id))
+                if (!TiposdeusuarioExists(id))
                 {
                     return NotFound();
                 }
@@ -80,23 +80,23 @@ namespace webapi.Controllers
             return NoContent();
         }
 
-        // POST: api/Organizaciones
+        // POST: api/Tiposdeusuarios
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Organizacione>> PostOrganizacione(Organizacione organizacione)
+        public async Task<ActionResult<Tiposdeusuario>> PostTiposdeusuario(Tiposdeusuario tiposdeusuario)
         {
-          if (_context.Organizaciones == null)
+          if (_context.Tiposdeusuarios == null)
           {
-              return Problem("Entity set 'MartialMasterContext.Organizaciones'  is null.");
+              return Problem("Entity set 'MartialMasterContext.Tiposdeusuarios'  is null.");
           }
-            _context.Organizaciones.Add(organizacione);
+            _context.Tiposdeusuarios.Add(tiposdeusuario);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (OrganizacioneExists(organizacione.IdOrg))
+                if (TiposdeusuarioExists(tiposdeusuario.IdTp))
                 {
                     return Conflict();
                 }
@@ -106,32 +106,32 @@ namespace webapi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetOrganizacione", new { id = organizacione.IdOrg }, organizacione);
+            return CreatedAtAction("GetTiposdeusuario", new { id = tiposdeusuario.IdTp }, tiposdeusuario);
         }
 
-        // DELETE: api/Organizaciones/5
+        // DELETE: api/Tiposdeusuarios/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrganizacione(int id)
+        public async Task<IActionResult> DeleteTiposdeusuario(int id)
         {
-            if (_context.Organizaciones == null)
+            if (_context.Tiposdeusuarios == null)
             {
                 return NotFound();
             }
-            var organizacione = await _context.Organizaciones.FindAsync(id);
-            if (organizacione == null)
+            var tiposdeusuario = await _context.Tiposdeusuarios.FindAsync(id);
+            if (tiposdeusuario == null)
             {
                 return NotFound();
             }
 
-            _context.Organizaciones.Remove(organizacione);
+            _context.Tiposdeusuarios.Remove(tiposdeusuario);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool OrganizacioneExists(int id)
+        private bool TiposdeusuarioExists(int id)
         {
-            return (_context.Organizaciones?.Any(e => e.IdOrg == id)).GetValueOrDefault();
+            return (_context.Tiposdeusuarios?.Any(e => e.IdTp == id)).GetValueOrDefault();
         }
     }
 }

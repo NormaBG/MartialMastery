@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using webapi.Controllers;
+using System.Text.Json.Serialization;
 using webapi.Models;
+//using.webapi.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,12 @@ builder.Services.AddDbContext<MartialMasterContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaBD_MartialMastery"));
 });
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
+
 
 var app = builder.Build();
 
@@ -34,6 +41,7 @@ app.UseCors(options =>
 });
 
 //agregar usuario
+
 
 app.UseHttpsRedirection();
 

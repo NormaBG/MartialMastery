@@ -11,27 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  username: string = '';
-  password: string = '';
-  loginError: string = '';
+  constructor(private router: Router) { }
 
-  constructor(private authService: AuthService, private router: Router) { }
 
-  login() {
-    this.authService.login(this.username, this.password).subscribe(
-      (Response) => {
-        if (Response.succes) {
-          //inicio sesion correctamente
-          this.router.navigate(['']);
-        } else {
-          //fallo la autenticacion
-          this.loginError = 'Nombre de usuario o contraseña incorrecto';
-        }
-      },
-      (error) => {
-        //manejo de errores
-        this.loginError = 'Hubo un problema al iniciar sesion';
-      }
-    )
-  }
 }
