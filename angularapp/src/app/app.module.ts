@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DashboardpComponent } from './dashboardp/dashboardp.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AppComponent,
     LoginComponent,
     NavbarComponent,
+    DashboardpComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,

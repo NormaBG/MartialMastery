@@ -7,18 +7,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Text;
 
 
-
-
 namespace webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-
         private readonly string secretKey; 
         
-
         public AuthenticationController(IConfiguration config)
         {
             secretKey = config.GetSection("settings").GetSection("secretkey").ToString();

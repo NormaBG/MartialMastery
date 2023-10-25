@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using webapi.Models;
 
 namespace webapi.Controllers
 {
     [Route("api/[controller]")]
+    //restringir acceso
+    //[Authorize]
     [ApiController]
     public class UsuariosController : ControllerBase
     {

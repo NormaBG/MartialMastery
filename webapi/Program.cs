@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-
 using webapi.Models;
 //using.webapi.Controllers;
 
@@ -12,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 //OBTENER LLAVE SECRETA Y CONVERTIRLO EN BYTE / cCONFIGURACION PARA IMPLEMENTAR JSON WEB TOKEN
 builder.Configuration.AddJsonFile("appsettings.json");
-var secretkey = builder.Configuration.GetSection("setting").GetSection("proyectoW3b").ToString();
+var secretkey = builder.Configuration.GetSection("settings").GetSection("proyectoW3b").ToString();
 var keyBytes = Encoding.UTF8.GetBytes(secretkey);
 
 builder.Services.AddAuthentication(config =>
@@ -65,8 +64,6 @@ app.UseCors(options =>
     options.AllowAnyMethod();
     options.AllowAnyHeader();
 });
-
-
 
 app.UseHttpsRedirection();
 

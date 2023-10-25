@@ -12,6 +12,8 @@ export class AppComponent {
   public usuarios?: Usuarios[];
 
   constructor(http: HttpClient) {
+
+    /*
     http.get<tipousu[]>('https://localhost:7041/api/Tiposusers').subscribe(result => {
       this.tipouser = result;
     }, error => console.error(error));
@@ -19,6 +21,8 @@ export class AppComponent {
     http.get<Usuarios[]>('https://localhost:7041/api/Usuarios').subscribe(result => {
       this.usuarios = result;
     }, error => console.error(error));
+
+    */
 
   }
 

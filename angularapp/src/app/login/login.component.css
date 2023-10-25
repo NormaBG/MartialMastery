@@ -6,6 +6,18 @@ body {
   min-height: 100vh;
 }
 
+/* Estilo de casillas incorrectas */
+.has-error input[type="text"],
+.has-error input[type="password"] {
+  border-color: red;
+}
+/* Estilo del mensaje de error */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .login-container {
   margin: 150px auto 0;
   width: 90%; /* Abarca todo el ancho de la pantalla */
