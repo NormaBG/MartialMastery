@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardpComponent } from './dashboardp/dashboardp.component';
+import { noVolver } from './guards/noVolver';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { DashboardpComponent } from './dashboardp/dashboardp.component';
     MatToolbarModule, NoopAnimationsModule, MatButtonModule, MatIconModule, MatCardModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [noVolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,13 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 //import { AppComponent } from './app.component';
 import { DashboardpComponent } from './dashboardp/dashboardp.component';
 import { loginGuard } from './guards/loginGuard';
+import { noVolver } from './guards/noVolver';
 
 const ROUTES: Routes = [
   //rutas xd
   //{ path: '', component: AppComponent}, //principal
   //{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }, //login
-  { path: 'dashboard', component: DashboardpComponent, canActivate: [loginGuard]}
+  { path: 'login', component: LoginComponent, canActivate:[noVolver]}, //login
+  { path: 'dashboard', component: DashboardpComponent, canActivate: [loginGuard]},
 ];
 
 @NgModule({
