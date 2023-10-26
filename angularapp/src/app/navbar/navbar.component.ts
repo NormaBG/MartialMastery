@@ -16,7 +16,4 @@ export class NavbarComponent {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
-
-
-
 }
