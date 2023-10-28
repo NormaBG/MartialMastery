@@ -17,6 +17,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardpComponent } from './dashboardp/dashboardp.component';
+import { RegistrodeusuariosComponent} from './registrodeusuarios/registrodeusuarios.component';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { DashboardpComponent } from './dashboardp/dashboardp.component';
   imports: [
     BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,
     MatToolbarModule, NoopAnimationsModule, MatButtonModule, MatIconModule, MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule, MatInputModule, RegistrodeusuariosComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]

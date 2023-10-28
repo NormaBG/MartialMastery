@@ -6,13 +6,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardpComponent } from './dashboardp/dashboardp.component';
 import { loginGuard } from './guards/loginGuard';
 import { noVolver } from './guards/noVolver';
+import { RegistrodeusuariosComponent } from './registrodeusuarios/registrodeusuarios.component';
 
 const ROUTES: Routes = [
   //rutas xd
   //{ path: '', component: AppComponent}, //principal
   //{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent, canActivate:[noVolver]}, //login
-  { path: 'dashboard', component: DashboardpComponent, canActivate: [loginGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [noVolver] }, //login
+  { path: 'dashboard', component: DashboardpComponent, canActivate: [loginGuard] },
+  { path: 'registro', component: RegistrodeusuariosComponent },
 ];
 
 @NgModule({
