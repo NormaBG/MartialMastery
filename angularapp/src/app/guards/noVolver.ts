@@ -1,6 +1,20 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
+
+export const noVolver = () => {
+
+  const router = inject(Router)
+
+  if (localStorage.getItem('token')) {
+    router.navigate(['/dashboard']);
+    return false;
+  }
+    return true;
+  
+}
+
+/*
 @Injectable()
 export class noVolver implements CanActivate {
   constructor(private router: Router) { }
@@ -14,3 +28,4 @@ export class noVolver implements CanActivate {
     return true; 
   }
 }
+*/
