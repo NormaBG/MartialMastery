@@ -22,7 +22,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 
-
 @NgModule({
   declarations: [
     AppComponent,
