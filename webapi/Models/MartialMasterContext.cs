@@ -261,6 +261,10 @@ public partial class MartialMasterContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("contrasena");
+            entity.Property(e => e.Email)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("email");
             entity.Property(e => e.Usuario1)
                 .HasMaxLength(50)
                 .IsUnicode(false)

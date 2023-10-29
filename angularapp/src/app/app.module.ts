@@ -19,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardpComponent } from './dashboardp/dashboardp.component';
 import { RegistrodeusuariosComponent} from './registrodeusuarios/registrodeusuarios.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -31,7 +33,7 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     BrowserModule, HttpClientModule, FormsModule, AppRoutingModule,
     MatToolbarModule, NoopAnimationsModule, MatButtonModule, MatIconModule, MatCardModule,
-    MatFormFieldModule, MatInputModule, RegistrodeusuariosComponent
+    MatFormFieldModule, MatInputModule, RegistrodeusuariosComponent, MatSelectModule, MatGridListModule
 
   ],
   providers: [],

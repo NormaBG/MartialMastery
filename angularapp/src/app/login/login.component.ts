@@ -21,6 +21,7 @@ export class LoginComponent {
     const credenciales = {
       usuario1: this.Usuario1,
       contrasena: this.Contrasena,
+      email: "string",
       tipoDeUser: 0, // Puedes proporcionar un valor predeterminado si es necesario
       tipoDeUserNavigation: {
         // Esto dependerá de la estructura requerida por la API

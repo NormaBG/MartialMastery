@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
-using System.Net.Http;
-using System.Net.Http.Headers;
 
 namespace webapi.Models;
 
@@ -15,7 +11,9 @@ public partial class Usuario
 
     public string Contrasena { get; set; } = null!;
 
+    public string Email { get; set; } = null!;
+
     public int TipoDeUser { get; set; }
 
-    public virtual Tiposdeusuario TipoDeUserNavigation { get; set; }
+    public virtual Tiposdeusuario TipoDeUserNavigation { get; set; } = null!;
 }

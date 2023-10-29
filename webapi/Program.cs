@@ -38,6 +38,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddDbContext<MartialMasterContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaBD_MartialMastery"));
@@ -47,6 +48,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
 });
+
 
 
 var app = builder.Build();
