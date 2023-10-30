@@ -5,7 +5,6 @@
   <div class="spacer"></div>
   <a mat-button routerLink="">Inicio</a>
   <a mat-button>Rankings</a>
-  <a *ngIf="!UsuariossService.isLogged()" mat-raised-button color="accent" routerLink="login">Iniciar Sesion</a>
-  <a *ngIf="UsuariossService.isLogged()" mat-raised-button color="accent" (click)="onClickLogOut()">Cerrar Sesion</a>
-  
+  <a *ngIf="!UsuariossService.isLogged()" mat-raised-button class="custom-button" routerLink="login">Iniciar Sesion</a>
+  <a *ngIf="UsuariossService.isLogged()" mat-raised-button class="custom-button" (click)="onClickLogOut()">Cerrar Sesion</a>
 </mat-toolbar>

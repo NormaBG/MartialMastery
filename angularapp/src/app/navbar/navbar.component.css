@@ -2,6 +2,15 @@ mat-toolbar {
   background-color: black
 }
 
-.spacer{
-    flex: 1 1 auto;
+.spacer {
+  flex: 1 1 auto;
 }
+
+.custom-button {
+  background-color: blue;
+  color: white;
+}
+
+  .custom-button:hover {
+    background-color: darkblue; /* Cambia el color de fondo al pasar el ratón por encima */
+  }
