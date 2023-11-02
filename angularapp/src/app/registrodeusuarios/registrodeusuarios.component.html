@@ -19,7 +19,7 @@
 
       <div class="form-group">
         <label for="tipoUsuario">Tipo de Usuario:</label>
-        <select class="form-control" id="tipoUsuario">
+        <select class="form-control" id="tipoUsuario" name="tipodeuser" [(ngModel)]="opcionSeleccionada">
           <option>Elige una opción</option>
           <option>Peleador</option>
           <option>Organizacion</option>
@@ -29,6 +29,38 @@
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Registrarse</button>
+      </div>
+
+      <div *ngIf="opcionSeleccionada === 'Peleador'">
+        <label for="nombre"> Nombre(s):</label>
+        <input type="text" class="form-control" id="nombre" placeholder="nombre(s)" required>
+        <label for="apellido"> Apellido(s): </label>
+        <input type="text" class="form-control" id="apellido" placeholder="apellidos(s)" required>
+        <label for="edad">Edad:</label>
+        <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad" min="0" required>
+        <label for="estatura">Estatura (en centímetros):</label>
+        <input type="number" class="form-control" id="estatura" name="estatura" placeholder="Ingrese su estatura" min="0" required>
+        <div class="form-group">
+          <label for="organizacion">¿Perteneces a alguna organizacion?</label>
+          <select class="form-control" id="organizacion" name="organizacion" [(ngModel)]="opcionOrganizacion">
+            <option>Elige una opción</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div *ngIf="opcionOrganizacion === 'Si'">
+          <ul>
+            <option *ngFor="let dato of datos" [value]="dato.nombre">{{ dato.nombre }}</option>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="opcionSeleccionada === 'Organizacion'">
+        <!-- Formulario de registro para Organizaciones -->
+      </div>
+
+      <div *ngIf="opcionSeleccionada === 'Juez'">
+        <!-- Formulario de registro para Jueces -->
       </div>
     </div>
   </form>

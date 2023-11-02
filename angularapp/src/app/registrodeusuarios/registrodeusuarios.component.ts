@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ObtenerorganizacionService } from 'src/app/servicios/obtenerorganizacion.service';
 
 @Component({
   selector: 'app-registrodeusuarios',
@@ -14,19 +15,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
   templateUrl: './registrodeusuarios.component.html',
   styleUrls: ['./registrodeusuarios.component.css']
 })
-export class RegistrodeusuariosComponent {
+export class RegistrodeusuariosComponent implements OnInit{
+ 
+  constructor(private Obtenerorganizacion: ObtenerorganizacionService) { }
 
-  selectedValue: string;
-  usuarios: any[];
+  datos: any[] = []; 
 
-  constructor() {
-    this.usuarios = [
-      { value: '1', viewValue: 'Competidor' },
-      { value: '2', viewValue: 'Organizador' },
-      { value: '3', viewValue: 'Juez' },
-    ];
+  ngOnInit(): void {
 
-    this.selectedValue = '';
+    this.Obtenerorganizacion.obtenerDatos().subscribe((data: any) => {
+      this.datos = Object.values(data);
+    });
   }
+
+
+  opcionOrganizacion: string = '';
+  opcionSeleccionada: string = '';
 
 }

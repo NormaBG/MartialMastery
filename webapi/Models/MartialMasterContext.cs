@@ -93,9 +93,7 @@ public partial class MartialMasterContext : DbContext
 
             entity.ToTable("organizaciones");
 
-            entity.Property(e => e.IdOrg)
-                .ValueGeneratedNever()
-                .HasColumnName("id_org");
+            entity.Property(e => e.IdOrg).HasColumnName("id_org");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(30)
                 .IsUnicode(false)
