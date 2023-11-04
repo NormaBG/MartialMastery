@@ -15,6 +15,8 @@ public partial class Peleadore
 
     public float? Estatura { get; set; }
 
+    public string? Artemarcial { get; set; }
+
     public string? Cinturon { get; set; }
 
     public string? Organizacion { get; set; }

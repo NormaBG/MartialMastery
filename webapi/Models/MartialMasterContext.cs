@@ -94,6 +94,14 @@ public partial class MartialMasterContext : DbContext
             entity.ToTable("organizaciones");
 
             entity.Property(e => e.IdOrg).HasColumnName("id_org");
+            entity.Property(e => e.Artemarcial)
+                .HasMaxLength(30)
+                .IsUnicode(false)
+                .HasColumnName("artemarcial");
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("descripcion");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(30)
                 .IsUnicode(false)
@@ -141,6 +149,10 @@ public partial class MartialMasterContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("apellido");
+            entity.Property(e => e.Artemarcial)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("artemarcial");
             entity.Property(e => e.Cinturon)
                 .HasMaxLength(50)
                 .IsUnicode(false)
