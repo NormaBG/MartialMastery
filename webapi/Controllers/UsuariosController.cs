@@ -21,10 +21,10 @@ namespace webapi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-          if (_context.Usuarios == null)
-          {
-              return NotFound();
-          }
+            if (_context.Usuarios == null)
+            {
+                return NotFound();
+            }
             return await _context.Usuarios.ToListAsync();
         }
 
@@ -32,10 +32,10 @@ namespace webapi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-          if (_context.Usuarios == null)
-          {
-              return NotFound();
-          }
+            if (_context.Usuarios == null)
+            {
+                return NotFound();
+            }
             var usuario = await _context.Usuarios.FindAsync(id);
 
             if (usuario == null)
@@ -83,9 +83,9 @@ namespace webapi.Controllers
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
             if (_context.Usuarios == null)
-          {
-              return Problem("Entity set 'MartialMasterContext.Usuarios'  is null.");
-          }
+            {
+                return Problem("Entity set 'MartialMasterContext.Usuarios'  is null.");
+            }
 
             //desvincular navigarion de mi tabla usuarios
             usuario.TipoDeUserNavigation = null;

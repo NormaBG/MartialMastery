@@ -1,6 +1,6 @@
 <div class="container text-center">
 
-  <form class="registro">
+  <form (ngSubmit)="crearUsuario()" class="registro">
     <div class="form-list">
       <div class="form-group">
         <label for="nombreUsuario">Nombre de Usuario:</label>
@@ -17,7 +17,10 @@
         <input type="email" class="form-control" id="email" placeholder="Email" required>
       </div>
 
+      <label>Eliga un tipo de usuario para continuar con el registro :)</label>
+
       <div class="form-group">
+        <label> </label>
         <label for="tipoUsuario">Tipo de Usuario:</label>
         <select class="form-control" id="tipoUsuario" name="tipodeuser" [(ngModel)]="opcionSeleccionada">
           <option>Elige una opción</option>
@@ -47,55 +50,90 @@
         </div>
         <div class="form-group">
           <label for="artematcial">¿Que arte marcial practicas?</label>
-          <select class="form-control" id="artemarcial" name="artemarcial" [(ngModel)]="seleccionarte">
+          <select class="form-control" id="artemarcial" name="artemarcial" [(ngModel)]="seleccionArte">
             <option>Elige una opción</option>
             <option>Karate</option>
             <option>Taekwondo</option>
             <option>Boxeo</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="seleccionArte === 'Karate'">
+            <select class="form-control" id="cinturonkarate" name="cinturonkarate">
+              <option>Blanco (novato)</option>
+              <option>Amarillo</option>
+              <option>Naranja</option>
+              <option>Verde</option>
+              <option>Azul</option>
+              <option>Marron</option>
+              <option>Negro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="seleccionArte === 'Taekwondo'">
+            <div>
+              <select class="form-control" id="cinturonTaekwondo" name="cinturonTaekwondo">
+                <option>Blanco (novato)</option>
+                <option>Amarillo</option>
+                <option>Amarillo Avanzado</option>
+                <option>Verde</option>
+                <option>Verde Avanzado</option>
+                <option>Azul</option>
+                <option>Azul Avanzado</option>
+                <option>Rojo</option>
+                <option>Rojo avanzado</option>
+                <option>Negro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+          </div>
+        </div>
+
+        <div *ngIf="opcionSeleccionada === 'Organizacion'">
+          <!-- Formulario de registro para Organizaciones -->
+          <div class="form-group">
+            <label for="nombreorg">Nombre de la organizacion:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre de la organizacion" required>
+          </div>
+          <div class="form-group">
+            <label for="descripcionorg">Descripción:</label>
+            <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" required>
+          </div>
+          <div class="form-group">
+            <label for="artemarcial">Arte marcial que enseña:</label>
+            <input type="text" class="form-control" id="arteenseñanza" placeholder="Arte marcial" required>
+          </div>
+          <div class="form-group">
+            <label for="ubicacion">Ubicacion: </label>
+            <input type="text" class="form-control" id="Ubicacion" placeholder="Ubicación" required>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Registrarse</button>
           </div>
         </div>
 
-      <div *ngIf="opcionSeleccionada === 'Organizacion'">
-        <!-- Formulario de registro para Organizaciones -->
-        <div class="form-group">
-          <label for="nombreorg">Nombre de la organizacion:</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Nombre de la organizacion" required>
-        </div>
-        <div class="form-group">
-          <label for="descripcionorg">Descripción:</label>
-          <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" required>
-        </div>
-        <div class="form-group">
-          <label for="artemarcial">Arte marcial que enseña:</label>
-          <input type="text" class="form-control" id="arteenseñanza" placeholder="Arte marcial" required>
-        </div>
-        <div class="form-group">
-          <label for="ubicacion">Ubicacion: </label>
-          <input type="text" class="form-control" id="Ubicacion" placeholder="Ubicación" required>
-        </div>
+        <div *ngIf="opcionSeleccionada === 'Juez'">
+          <!-- Formulario de registro para Jueces -->
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <label for="nombrejuez">Nombre(s):</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)" required>
           </div>
-        </div>
-
-      <div *ngIf="opcionSeleccionada === 'Juez'">
-        <!-- Formulario de registro para Jueces -->
-        <div class="form-group">
-          <label for="nombrejuez">Nombre(s):</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)" required>
-        </div>
-        <div class="form-group">
-          <label for="apellidojuez">Apellidos:</label>
-          <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
-        </div>
-        <div class="form-group">
-          <label for="edad">Edad:</label>
-          <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad" min="0" required>
-         </div>
+          <div class="form-group">
+            <label for="apellidojuez">Apellidos:</label>
+            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
+          </div>
+          <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad" min="0" required>
+          </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Registrarse</button>
           </div>

@@ -172,6 +172,7 @@ public partial class MartialMasterContext : DbContext
                 .HasColumnName("organizacion");
             entity.Property(e => e.Peleasganadas).HasColumnName("peleasganadas");
             entity.Property(e => e.Peleasperdidas).HasColumnName("peleasperdidas");
+            entity.Property(e => e.Peso).HasColumnName("peso");
         });
 
         modelBuilder.Entity<ResultadosPelea>(entity =>
