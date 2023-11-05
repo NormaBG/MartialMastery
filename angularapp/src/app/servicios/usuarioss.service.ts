@@ -15,10 +15,4 @@ export class UsuariossService {
   isLogged(): boolean {
     return localStorage.getItem('token') ? true : false;
   }
-
-  crearUsuario(usuario: any) {
-    return this.http.post(this.baseURL, usuario);
-  }
-
-
 }

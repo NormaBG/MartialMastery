@@ -6,61 +6,57 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
-//import { HttpClient } from '@angular/common/http';
-//import { Router } from '@angular/router';
-import { UsuariossService } from 'src/app/servicios/usuarioss.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+//import { UsuariossService } from 'src/app/servicios/usuarioss.service';
+
+interface TiposDeUsuario {
+  [key: string]: number;
+}
+
 
 @Component({
   selector: 'app-registrodeusuarios',
   standalone: true,
-  imports: [CommonModule, MatGridListModule,MatFormFieldModule, MatSelectModule, FormsModule, MatInputModule, MatButtonModule],
+  imports: [CommonModule, MatGridListModule, MatFormFieldModule, MatSelectModule, FormsModule, MatInputModule, MatButtonModule],
   templateUrl: './registrodeusuarios.component.html',
   styleUrls: ['./registrodeusuarios.component.css']
 })
 export class RegistrodeusuariosComponent {
 
-  opcionSeleccionada: string = '';
   seleccionArte: string = '';
-  usuarios: any = {};
-  //parametros para recibir en el registro
+  opcionSeleccionada: string = '';
 
-  Usuario1: string = "";
-  contrasena: string = "";
-  email: string = "";
 
-  //peleador
+  //recibir parametros para el registro
+  user = {
+    idUsuario: 0,
+    Usuario1: '',
+    Contrasena: '',
+    email: '',
+    tipodeuser: 0,
+    "tipoDeUserNavigation": {
+    }
+  }
 
-  NombreP: string = "";
-  ApellidoP: string = "";
-  EdadP: string = "";
-  EstaturaP: string = "";
-  pesoP: string = "";
-  artemarcial: string = "";
-  cinturon: string = "";
+tiposDeUsuario: TiposDeUsuario = {
+  'Elige una opción': 0,
+  'Peleador': 2,
+  'Organizacion': 4,
+  'Juez': 3,
+};
 
-  //organizacion
-  nombreO: string = "";
-  descripcionO: string = "";
-  artemarcialO: string = "";
-  ubicacionO: string = "";
-
-  //juez
-  nombrej: string = "";
-  apellidoj: string = "";
-  edadj: string = "";
-
-  constructor(private usuarioService: UsuariossService) { }
-   
-  crearUsuario() {
-    this.usuarioService.crearUsuario(this.Usuario1).subscribe(
-      (data) => {
-        // Maneja la respuesta exitosa aquí
-        console.log('Usuario creado exitosamente', data);
-      },
-      (error) => {
-        // Maneja errores aquí
-        console.error('Error al crear el usuario', error);
-      }
-    );
+  constructor(private http: HttpClient, private router: Router) { }
+  registerUser() {
+    this.user.tipodeuser = this.tiposDeUsuario[this.opcionSeleccionada];
+    this.http.post('https://localhost:7041/api/Usuarios', this.user).subscribe(
+        (response) => {
+          console.log('Usuario registrado con éxito');
+        },
+        (error) => {
+          console.error('Error al registrar usuario', error);
+          console.log(this.user);
+        }
+      );
   }
 }
