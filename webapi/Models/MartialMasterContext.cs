@@ -142,9 +142,7 @@ public partial class MartialMasterContext : DbContext
 
             entity.ToTable("peleadores");
 
-            entity.Property(e => e.IdPeleador)
-                .ValueGeneratedNever()
-                .HasColumnName("id_peleador");
+            entity.Property(e => e.IdPeleador).HasColumnName("id_peleador");
             entity.Property(e => e.Apellido)
                 .HasMaxLength(50)
                 .IsUnicode(false)

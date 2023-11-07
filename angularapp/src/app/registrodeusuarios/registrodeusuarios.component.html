@@ -33,23 +33,27 @@
       <div *ngIf="opcionSeleccionada === 'Peleador'">
         <div class="form-group">
           <label for="nombre"> Nombre(s):</label>
-          <input type="text" class="form-control" id="nombre" placeholder="nombre(s)" required>
+          <input type="text" class="form-control" id="nombre" name="nombrepeleador" [(ngModel)]="peleador.nombre" placeholder="nombre(s)" required>
         </div>
         <div class="form-group">
           <label for="apellido"> Apellido(s): </label>
-          <input type="text" class="form-control" id="apellido" placeholder="apellidos(s)" required>
+          <input type="text" class="form-control" id="apellido" name="apellidopeleador" [(ngModel)]="peleador.apellido" placeholder="apellidos(s)" required>
         </div>
         <div class="form-group">
           <label for="edad">Edad:</label>
-          <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad" min="0" required>
+          <input type="text" class="form-control" id="edad" name="edadpeleador" [(ngModel)]="peleador.edad" placeholder="Ingrese su edad" min="0" required>
         </div>
         <div class="form-group">
           <label for="estatura">Estatura (en centímetros):</label>
-          <input type="number" class="form-control" id="estatura" name="estatura" placeholder="Ingrese su estatura" min="0" required>
+          <input type="number" class="form-control" id="estatura" name="estaturapeleador" [(ngModel)]="peleador.estatura" placeholder="Ingrese su estatura" min="0" required>
         </div>
         <div class="form-group">
-          <label for="artematcial">¿Que arte marcial practicas?</label>
-          <select class="form-control" id="artemarcial" name="artemarcial" [(ngModel)]="seleccionArte">
+          <label for="peso">Peso: </label>
+          <input type="number" class="form-control" id="peso" name="peso" [(ngModel)]="peleador.peso" placeholder="Ingrese su peso" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="artemarcial">¿Que arte marcial practicas?</label>
+          <select class="form-control" id="artemarcial" name="artemarcial" [(ngModel)]="peleador.artemarcial">
             <option>Elige una opción</option>
             <option>Karate</option>
             <option>Taekwondo</option>
@@ -58,8 +62,8 @@
         </div>
 
         <div class="form-group">
-          <div *ngIf="seleccionArte === 'Karate'">
-            <select class="form-control" id="cinturonkarate" name="cinturonkarate">
+          <div *ngIf="peleador.artemarcial === 'Karate'">
+            <select class="form-control" id="cinturonkarate" name="cinturonkarate" [(ngModel)]="peleador.cinturon">
               <option>Blanco (novato)</option>
               <option>Amarillo</option>
               <option>Naranja</option>
@@ -72,9 +76,9 @@
         </div>
 
         <div class="form-group">
-          <div *ngIf="seleccionArte === 'Taekwondo'">
+          <div *ngIf="peleador.artemarcial === 'Taekwondo'">
             <div>
-              <select class="form-control" id="cinturonTaekwondo" name="cinturonTaekwondo">
+              <select class="form-control" id="cinturonTaekwondo" name="cinturonTaekwondo" [(ngModel)]="peleador.cinturon">
                 <option>Blanco (novato)</option>
                 <option>Amarillo</option>
                 <option>Amarillo Avanzado</option>
@@ -90,11 +94,10 @@
           </div>
         </div>
 
-
-          <div class="form-group">
-            <button type="submit" (click)="registerUser()"class="btn btn-primary">Registrarse</button>
-          </div>
+        <div class="form-group">
+          <button type="submit" (click)="registerUser()"  class="btn btn-primary">Registrarse</button>
         </div>
+      </div>
 
         <div *ngIf="opcionSeleccionada === 'Organizacion'">
           <!-- Formulario de registro para Organizaciones -->

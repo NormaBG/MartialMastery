@@ -39,6 +39,23 @@ export class RegistrodeusuariosComponent {
     }
   }
 
+  //poner el id peleador autoincremental, que no se me olvide
+  peleador = {
+  idPeleador: 0,
+  nombre: "",
+  apellido: "",
+  edad: "",
+  estatura: 0,
+  peso: 0,
+  artemarcial: "",
+  cinturon: "",
+  organizacion: "",
+  peleasganadas: 0,
+    peleasperdidas: 0,
+    "peleadore": [
+    ]
+}
+
 tiposDeUsuario: TiposDeUsuario = {
   'Elige una opción': 0,
   'Peleador': 2,
@@ -51,12 +68,20 @@ tiposDeUsuario: TiposDeUsuario = {
     this.user.tipodeuser = this.tiposDeUsuario[this.opcionSeleccionada];
     this.http.post('https://localhost:7041/api/Usuarios', this.user).subscribe(
         (response) => {
-          console.log('Usuario registrado con éxito');
-        },
+        console.log('Usuario registrado con éxito');
+        console.log(this.peleador);
+      },
         (error) => {
           console.error('Error al registrar usuario', error);
           console.log(this.user);
         }
-      );
+    );
+    if (this.opcionSeleccionada === 'Peleador') {
+      this.http.post('https://localhost:7041/api/Peleadores', this.peleador).subscribe(
+        (response) => {
+          console.log('Peleador registrado');
+        }
+      )
+    }
   }
 }
