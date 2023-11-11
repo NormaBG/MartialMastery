@@ -39,23 +39,44 @@ export class RegistrodeusuariosComponent {
     }
   }
 
-  //poner el id peleador autoincremental, que no se me olvide
+  //peleador
   peleador = {
-  idPeleador: 0,
-  nombre: "",
-  apellido: "",
-  edad: "",
-  estatura: 0,
-  peso: 0,
-  artemarcial: "",
-  cinturon: "",
-  organizacion: "",
-  peleasganadas: 0,
+    idPeleador: 0,
+    nombre: "",
+    apellido: "",
+    edad: "",
+    estatura: 0,
+    peso: 0,
+    artemarcial: "",
+    cinturon: "",
+    organizacion: "",
+    peleasganadas: 0,
     peleasperdidas: 0,
     "peleadore": [
     ]
-}
+  }
 
+  //organizacion
+  org = {
+    "idOrg": 0,
+    "nombre": "",
+    "descripcion": "",
+    "artemarcial": "",
+    "ubicacion": "",
+  }
+
+  //juez
+  juez = {
+    "idJuez": 0,
+    "nombre": "",
+    "apellido": "",
+    "edad": "",
+    "peleasj": "NULL",
+    "juece": [
+     
+    ]
+  }
+  
 tiposDeUsuario: TiposDeUsuario = {
   'Elige una opción': 0,
   'Peleador': 2,
@@ -80,6 +101,18 @@ tiposDeUsuario: TiposDeUsuario = {
       this.http.post('https://localhost:7041/api/Peleadores', this.peleador).subscribe(
         (response) => {
           console.log('Peleador registrado');
+        }
+      )
+    } else if (this.opcionSeleccionada === 'Organizacion') {
+      this.http.post('https://localhost:7041/api/Organizaciones', this.org).subscribe(
+        (response) => {
+          console.log('Organizacion Registrada')
+        }
+      )
+    } else if (this.opcionSeleccionada === 'Juez') {
+      this.http.post('https://localhost:7041/api/Jueces', this.juez).subscribe(
+        (response) => {
+          console.log('Juez Registrado')
         }
       )
     }

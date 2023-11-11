@@ -45,9 +45,7 @@ public partial class MartialMasterContext : DbContext
 
             entity.ToTable("jueces");
 
-            entity.Property(e => e.IdJuez)
-                .ValueGeneratedNever()
-                .HasColumnName("id_juez");
+            entity.Property(e => e.IdJuez).HasColumnName("id_juez");
             entity.Property(e => e.Apellido)
                 .HasMaxLength(50)
                 .IsUnicode(false)

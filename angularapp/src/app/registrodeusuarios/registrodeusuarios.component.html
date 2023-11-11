@@ -103,22 +103,22 @@
           <!-- Formulario de registro para Organizaciones -->
           <div class="form-group">
             <label for="nombreorg">Nombre de la organizacion:</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre de la organizacion" required>
+            <input type="text" class="form-control" id="nombre" name="orgnombre" [(ngModel)]="org.nombre"  placeholder="Nombre de la organizacion" required>
           </div>
           <div class="form-group">
             <label for="descripcionorg">Descripción:</label>
-            <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" required>
+            <input type="text" class="form-control" id="descripcion" name="orgdescripcion" [(ngModel)]="org.descripcion" placeholder="Descripcion" required>
           </div>
           <div class="form-group">
             <label for="artemarcial">Arte marcial que enseña:</label>
-            <input type="text" class="form-control" id="arteenseñanza" placeholder="Arte marcial" required>
+            <input type="text" class="form-control" id="arteenseñanza" name="orgnartemarcial" [(ngModel)]="org.artemarcial" placeholder="Arte marcial" required>
           </div>
           <div class="form-group">
             <label for="ubicacion">Ubicacion: </label>
-            <input type="text" class="form-control" id="Ubicacion" placeholder="Ubicación" required>
+            <input type="text" class="form-control" id="Ubicacion" name="ubicacion" [(ngModel)]="org.ubicacion" placeholder="Ubicación" required>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" (click)="registerUser()" class="btn btn-primary">Registrarse</button>
           </div>
         </div>
 
@@ -126,18 +126,18 @@
           <!-- Formulario de registro para Jueces -->
           <div class="form-group">
             <label for="nombrejuez">Nombre(s):</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)" required>
+            <input type="text" class="form-control" id="nombre" name="nombrejuez" [(ngModel)]="juez.nombre" placeholder="Nombre(s)" required>
           </div>
           <div class="form-group">
             <label for="apellidojuez">Apellidos:</label>
-            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" required>
+            <input type="text" class="form-control" id="apellidos" name="apellidojuez" [(ngModel)]="juez.apellido" placeholder="Apellidos" required>
           </div>
           <div class="form-group">
             <label for="edad">Edad:</label>
-            <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad" min="0" required>
+            <input type="text" class="form-control" id="edad" name="edadjuez" [(ngModel)]="juez.edad" placeholder="Ingrese su edad" min="0" required>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" (click)="registerUser()" class="btn btn-primary">Registrarse</button>
           </div>
         </div>
       </div>
