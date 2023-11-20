@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UsuariossService} from 'src/app/servicios/usuarioss.service';
 
 
 @Component({
@@ -14,11 +15,13 @@ import { Router } from '@angular/router';
 export class TorneoslistadoComponent implements OnInit {
 
   torneos: any[] = [];
+  tipoDeUser: number = 0;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private serviciouser: UsuariossService) { }
 
   ngOnInit(): void {
     this.obtenerTorneos();
+    this.tipoDeUser = this.serviciouser.getTipoDeUser();
   }
 
   obtenerTorneos() {

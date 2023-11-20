@@ -17,7 +17,7 @@ export class LoginComponent {
   credencialesincorrectas: boolean = false;
   idtipo: number = 0;
   
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private usuarioservicio: UsuariossService) { }
 
   Validar() {
     const credenciales = {
@@ -42,11 +42,14 @@ export class LoginComponent {
             const valores = responseusu.$values;
 
             for (const usuario of valores) {
-              if (usuario.usuario1 == this.Usuario1 && usuario.contrasena == this.Contrasena) {
-                this.idtipo = usuario.tipoDeUser;
+              if (usuario.usuario1 === this.Usuario1 && usuario.contrasena === this.Contrasena) {
+                //this.idtipo = usuario.tipoDeUser;
+                this.usuarioservicio.setTipoDeUser(usuario.tipoDeUser);
               }
             }
-            console.log(this.idtipo);
+
+            //this.usuarioservicio.setTipoDeUser(this.idtipo);
+
           }
         )
 

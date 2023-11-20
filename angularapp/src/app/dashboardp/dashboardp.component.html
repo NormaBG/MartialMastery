@@ -1,0 +1,17 @@
+<div class="container">
+
+  <!-- componente-ejemplo.component.html -->
+  <div *ngIf= "tipoDeUser === 2">
+    <!-- Contenido específico para peleadores -->
+    <p>Bienvenido, peleador.</p>
+  </div>
+  <div *ngIf= "tipoDeUser === 4">
+    <!-- Contenido específico para organizaciones -->
+    <p>Bienvenido, organización.</p>
+  </div>
+  <div *ngIf= "tipoDeUser === 3">
+    <!-- Contenido específico para jueces -->
+    <p>Bienvenido, juez.</p>
+  </div>
+
+</div>
