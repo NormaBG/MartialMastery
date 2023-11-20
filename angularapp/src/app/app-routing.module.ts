@@ -7,6 +7,7 @@ import { DashboardpComponent } from './dashboardp/dashboardp.component';
 import { loginGuard } from './guards/loginGuard';
 import { noVolver } from './guards/noVolver';
 import { RegistrodeusuariosComponent } from './registrodeusuarios/registrodeusuarios.component';
+import { TorneoslistadoComponent } from './torneoslistado/torneoslistado.component';
 
 const ROUTES: Routes = [
   //rutas xd
@@ -15,6 +16,7 @@ const ROUTES: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [noVolver] }, //login
   { path: 'dashboard', component: DashboardpComponent, canActivate: [loginGuard] },
   { path: 'registro', component: RegistrodeusuariosComponent },
+  { path: 'torneos', component: TorneoslistadoComponent, canActivate: [loginGuard] },
 ];
 
 @NgModule({

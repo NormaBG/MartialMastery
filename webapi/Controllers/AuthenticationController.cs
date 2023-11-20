@@ -26,8 +26,8 @@ namespace webapi.Controllers
         {
             using(var contextobd = new MartialMasterContext())
             {
-                var usuarioEncontrado = await contextobd.Usuarios.SingleOrDefaultAsync(u => u.Usuario1 == request.Usuario1);
-                var contraencontrada = await contextobd.Usuarios.SingleOrDefaultAsync(u => u.Contrasena == request.Contrasena);
+                var usuarioEncontrado = await contextobd.Usuarios.FirstOrDefaultAsync(u => u.Usuario1 == request.Usuario1);
+                var contraencontrada = await contextobd.Usuarios.FirstOrDefaultAsync(u => u.Contrasena == request.Contrasena);
                 
                 if (usuarioEncontrado != null && contraencontrada != null)
                 {

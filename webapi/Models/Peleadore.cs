@@ -17,9 +17,9 @@ public partial class Peleadore
 
     public float? Peso { get; set; }
 
-    public string? Artemarcial { get; set; }
+    public int? Artemarcial { get; set; }
 
-    public string? Cinturon { get; set; }
+    public int? Cinturon { get; set; }
 
     public string? Organizacion { get; set; }
 
@@ -27,5 +27,7 @@ public partial class Peleadore
 
     public int? Peleasperdidas { get; set; }
 
-    public virtual ICollection<Participacion> Participacions { get; set; } = new List<Participacion>();
+    public virtual Artemarcial? ArtemarcialNavigation { get; set; }
+
+    public virtual Cinturone? CinturonNavigation { get; set; }
 }

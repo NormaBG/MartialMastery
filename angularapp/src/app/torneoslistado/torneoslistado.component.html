@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<h2>Listado de Torneos</h2>
+<div class="container">
+
+  <ul class="list-group">
+    <li *ngFor="let torneo of torneos" class="list-group-item">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Nombre: {{ torneo.nombre }}</p>
+          <p class="card-text">Ubicación: {{ torneo.ubicacion }}</p>
+          <p class="card-text">Descripción: {{ torneo.descripcion }}</p>
+          <p class="card-text">Fecha: {{ torneo.fecha }}</p>
+          <p class="card-text">Categorías: {{ torneo.categorias }}</p>
+          <button type="button" class="btn btn-success">Unirse</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

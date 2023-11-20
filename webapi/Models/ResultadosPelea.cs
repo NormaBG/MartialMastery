@@ -25,7 +25,5 @@ public partial class ResultadosPelea
 
     public virtual Juece? IdJuezPerdedorNavigation { get; set; }
 
-    public virtual Participacion? IdParticipacionNavigation { get; set; }
-
     public virtual Torneo? IdTorneoNavigation { get; set; }
 }

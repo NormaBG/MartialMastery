@@ -14,6 +14,13 @@ interface TiposDeUsuario {
   [key: string]: number;
 }
 
+interface ArteMarcial {
+  [key: string]: number;
+}
+
+interface Cinturon {
+  [key: string]: number;
+}
 
 @Component({
   selector: 'app-registrodeusuarios',
@@ -26,6 +33,7 @@ export class RegistrodeusuariosComponent {
 
   seleccionArte: string = '';
   opcionSeleccionada: string = '';
+  peleadorcinturon: string = '';
 
 
   //recibir parametros para el registro
@@ -47,8 +55,8 @@ export class RegistrodeusuariosComponent {
     edad: "",
     estatura: 0,
     peso: 0,
-    artemarcial: "",
-    cinturon: "",
+    artemarcial: 0,
+    cinturon: 0,
     organizacion: "",
     peleasganadas: 0,
     peleasperdidas: 0,
@@ -82,11 +90,36 @@ tiposDeUsuario: TiposDeUsuario = {
   'Peleador': 2,
   'Organizacion': 4,
   'Juez': 3,
-};
+  };
+
+  artemarcial: ArteMarcial = {
+    'Elige una opción': 0,
+    'Karate': 1,
+    'Taekwondo' : 3,
+    'Boxeo': 2
+  }
+
+  cinturon: Cinturon = {
+    'Elige una opción': 0,
+    'Blanco': 2,
+    'Amarillo': 3,
+    'Naranja': 4,
+    'Verde': 5,
+    'Azul': 6,
+    'Marron': 7,
+    'Negro': 8,
+    'blanco': 9,
+    'amarillo': 10,
+    'verde': 11,
+    'azul': 12,
+    'rojo': 13,
+    'negro': 14
+  }
 
   constructor(private http: HttpClient, private router: Router) { }
   registerUser() {
     this.user.tipodeuser = this.tiposDeUsuario[this.opcionSeleccionada];
+    this.peleador.cinturon = this.cinturon[this.peleadorcinturon];
     this.http.post('https://localhost:7041/api/Usuarios', this.user).subscribe(
         (response) => {
         console.log('Usuario registrado con éxito');

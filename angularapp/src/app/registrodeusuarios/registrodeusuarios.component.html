@@ -54,17 +54,17 @@
         <div class="form-group">
           <label for="artemarcial">¿Que arte marcial practicas?</label>
           <select class="form-control" id="artemarcial" name="artemarcial" [(ngModel)]="peleador.artemarcial">
-            <option>Elige una opción</option>
-            <option>Karate</option>
-            <option>Taekwondo</option>
-            <option>Boxeo</option>
+            <option value=0>Elige una opción</option>
+            <option value=1>Karate</option>
+            <option value=3>Taekwondo</option>
+            <option value=2>Boxeo</option>
           </select>
         </div>
 
         <div class="form-group">
-          <div *ngIf="peleador.artemarcial === 'Karate'">
-            <select class="form-control" id="cinturonkarate" name="cinturonkarate" [(ngModel)]="peleador.cinturon">
-              <option>Blanco (novato)</option>
+          <div *ngIf="peleador.artemarcial == 1">
+            <select class="form-control" id="cinturonkarate" name="cinturonkarate" [(ngModel)]="peleadorcinturon">
+              <option>Blanco</option>
               <option>Amarillo</option>
               <option>Naranja</option>
               <option>Verde</option>
@@ -76,19 +76,15 @@
         </div>
 
         <div class="form-group">
-          <div *ngIf="peleador.artemarcial === 'Taekwondo'">
+          <div *ngIf="peleador.artemarcial == 3">
             <div>
-              <select class="form-control" id="cinturonTaekwondo" name="cinturonTaekwondo" [(ngModel)]="peleador.cinturon">
-                <option>Blanco (novato)</option>
-                <option>Amarillo</option>
-                <option>Amarillo Avanzado</option>
-                <option>Verde</option>
-                <option>Verde Avanzado</option>
-                <option>Azul</option>
-                <option>Azul Avanzado</option>
-                <option>Rojo</option>
-                <option>Rojo avanzado</option>
-                <option>Negro</option>
+              <select class="form-control" id="cinturonTaekwondo" name="cinturonTaekwondo" [(ngModel)]="peleadorcinturon">
+                <option>blanco</option>
+                <option>amarillo</option>
+                <option>verde</option>
+                <option>azul</option>
+                <option>rojo</option>
+                <option>negro</option>
               </select>
             </div>
           </div>

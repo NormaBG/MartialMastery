@@ -87,6 +87,20 @@ button {
     background: #fff;
   }
 
+  .fade-in {
+      animation: fadeInAnimation is ease-in forwards;
+  }
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .login-container {
     padding: 10px;
